@@ -138,7 +138,7 @@ function edd_import_coupon_csv_file() {
 						$validation_msg  .= __('Discount code is blank.', 'edd') . "; ";
 					}
 
-					// Verify only accepted characters.
+					// Verify that discount code only has accepted characters.
 					$sanitized_discount_code = preg_replace( '/[^a-zA-Z0-9-_]+/', '', $edd_discount_code );
 					if ( strtoupper( $edd_discount_code ) !== strtoupper( $sanitized_discount_code ) ) {
 						$validation_error = true;
