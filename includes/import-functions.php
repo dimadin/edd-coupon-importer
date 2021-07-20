@@ -151,8 +151,13 @@ function edd_import_coupon_csv_file() {
 						$validation_msg  .= __('Discount type is blank.', 'edd') . "; ";
 					}
 
+					// Keep backward compatibility.
+					if ( 'percentage' === $edd_discount_type ) {
+						$edd_discount_type = 'percent';
+					}
+
 					// discount type is invalid
-					$discount_types = array( 'flat', 'percentage' );
+					$discount_types = array( 'flat', 'percent' );
 					if ( ! in_array( $edd_discount_type, $discount_types, true ) ) {
 						$validation_error = true;
 						$validation_msg  .= __('Discount type is invalid.', 'edd') . "; ";
